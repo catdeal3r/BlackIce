@@ -7,7 +7,7 @@ int main(int argc, char* argv[])
 {
   ParsingHandler ph;
 
-  if (argv[1] == "--test-parse")
+  if (std::string(argv[1]) == "--test-parse")
   {
     std::cout << "Testing parser .....\n";
     ph._test_parse_scfile();
