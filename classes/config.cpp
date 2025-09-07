@@ -1,4 +1,5 @@
 #include "config.hpp"
+#include "helper.hpp"
 #include <iostream>
 #include <vector>
 #include <cstdlib>
@@ -127,22 +128,12 @@ int ConfigHandler::write_generic_option(std::string key, std::string value)
   
   if (key == "compiler")
   {
-    if (value.front() == '"')
-      value.erase(0, 1);
-    
-    if (value.back() == '"')
-      value.erase(value.size() - 1);
-    
+    Helper::remove_double_quotes(value); 
     write_compiler(value);
   }
   else if (key == "compiler_options")
   {
-    if (value.front() == '"')
-      value.erase(0, 1);
-    
-    if (value.back() == '"')
-      value.erase(value.size() - 1);
-    
+    Helper::remove_double_quotes(value); 
     write_compiler_options(value);
   }
   else if (key == "files")
