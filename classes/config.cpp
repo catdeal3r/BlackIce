@@ -38,6 +38,10 @@ int ConfigHandler::remove_files(std::vector<int> locs)
 
 std::vector<std::string> ConfigHandler::get_files()
 {
+  if (files.size() == 0){
+    throw std::invalid_argument("ConfigHandler: files are not set.");
+    exit(1);
+  }
   return files;
 }
 
@@ -51,7 +55,7 @@ int ConfigHandler::get_cpp_mode()
 {
   if (cpp_mode == -1)
   {
-    throw std::invalid_argument("ConfigHandler: cpp_mode is not set");
+    throw std::invalid_argument("ConfigHandler: cpp_mode is not set.");
     exit(1);
   }
 
