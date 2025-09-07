@@ -8,6 +8,7 @@ class ParsingHandler
   private:
     std::string scfile_loc = "./scfile";
     std::fstream open_scfile_loc();
+    int remove_spaces_from_str(std::string);
 
   public:
     int write_scfile_loc(std::string);

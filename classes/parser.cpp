@@ -129,8 +129,9 @@ int ParsingHandler::_test_parse_scfile()
     if (!std::getline(is_line, value))
       continue;
 
-    key.erase(key.size() - 1);
-    value.erase(0, 1);
+    remove_spaces_from_str(key);
+    remove_spaces_from_str(value);
+    
     _test_parse_option(key, value);
   }
   
@@ -156,9 +157,9 @@ int ParsingHandler::_test_parse_option(std::string key, std::string value)
 
     std::cout << "Values for key '" << key << "' is: '";
     for (std::string s : files)
-      std::cout << "\"" << s << "\" ";
+      std::cout << "\"" << s << "\", ";
 
-    std::cout << "\b'\n";
+    std::cout << "\b\b'\n";
   }
   else
   {
@@ -166,5 +167,16 @@ int ParsingHandler::_test_parse_option(std::string key, std::string value)
     exit(1);
   }
   
+  return 0;
+}
+
+int ParsingHandler::remove_spaces_from_str(std::string s)
+{
+  if (s[0] == ' ')
+    s.erase(0, 1);
+
+  if (s[s.length() - 1] == ' ')
+    s.erase(s.size() - 1);
+
   return 0;
 }
