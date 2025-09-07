@@ -14,6 +14,9 @@ class ParsingHandler
     int clear_scfile_loc();
 
     int parse_scfile();
+    
+    int _test_parse_scfile();
+    int _test_parse_option(std::string, std::string);
 
     static int remove_double_quotes(std::string);
     static std::vector<std::string> parse_array(std::string);

@@ -43,7 +43,6 @@ int ParsingHandler::parse_scfile()
     exit(1);
   }
 
-  // nestingg ahhhhh
   std::string line;
   while (std::getline(file, line))
   {
@@ -103,4 +102,69 @@ std::vector<std::string> ParsingHandler::parse_array(std::string s)
   }
 
   return array;
+}
+
+
+int ParsingHandler::_test_parse_scfile()
+{
+  std::fstream file = open_scfile_loc();
+
+  if (!file.is_open())
+  {
+    (void)file.close();
+    throw std::invalid_argument("ParsingHandler: 'parse_scfile()' failed as scfile is unreadable.");
+    exit(1);
+  }
+
+  std::string line;
+  while (std::getline(file, line))
+  {
+    std::istringstream is_line(line);
+    std::string key;
+    
+    if (!std::getline(is_line, key, '='))
+      continue;
+    
+    std::string value;
+    if (!std::getline(is_line, value))
+      continue;
+
+    key.erase(key.size() - 1);
+    value.erase(0, 1);
+    _test_parse_option(key, value);
+  }
+  
+  file.close();
+  return 0;
+}
+
+int ParsingHandler::_test_parse_option(std::string key, std::string value)
+{
+  if (key == "compiler")
+  {
+    ParsingHandler::remove_double_quotes(value); 
+    std::cout << "Value for key '" << key << "' is: '" << value << "'\n";
+  }
+  else if (key == "compiler_options")
+  {
+    ParsingHandler::remove_double_quotes(value); 
+    std::cout << "Value for key '" << key << "' is: '" << value << "'\n";
+  }
+  else if (key == "files")
+  {
+    std::vector<std::string> files = ParsingHandler::parse_array(value);
+
+    std::cout << "Values for key '" << key << "' is: '";
+    for (std::string s : files)
+      std::cout << "\"" << s << "\" ";
+
+    std::cout << "\b'\n";
+  }
+  else
+  {
+    std::cout << "Unrecognized config key: '" << key << "'\n";
+    exit(1);
+  }
+  
+  return 0;
 }
