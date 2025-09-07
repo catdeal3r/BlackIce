@@ -22,7 +22,6 @@ std::string CompileHandler::get_time_metadata_file(std::string file)
   std::filesystem::file_time_type ftime = std::filesystem::last_write_time(file);
     
   std::time_t tt = to_time_t(ftime);
-  std::tm *gmt = std::gmtime(&tt);
     
   std::stringstream buf;
   buf << tt;
