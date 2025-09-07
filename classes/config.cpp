@@ -129,6 +129,10 @@ int ConfigHandler::write_generic_option(std::string key, std::string value)
   {
     write_compiler(value);
   }
+  else if (key == "compiler_options")
+  {
+    write_compiler_options(value);
+  }
   else
   {
     std::cout << "Unrecognized config key: '" << key << "'\n";
