@@ -147,12 +147,15 @@ int ConfigHandler::write_generic_option(std::string key, std::string value)
   }
   else if (key == "files")
   {
+    std::cout << "Value is: " << value << "\n";
+    
     std::vector<std::string> files;
     std::string current_str;
     bool processing = false;
 
     for (char c : value)
     {
+      std::cout << "Processing char '" << c << "'\n";
       if (processing = true)
       {
         if (c == '"')
