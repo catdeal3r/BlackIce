@@ -9,6 +9,7 @@ int main(int argc, char* argv[])
 
   if (argv[1] == "--test-parse")
   {
+    std::cout << "Testing parser .....\n";
     ph._test_parse_scfile();
     return 0;  
   }
