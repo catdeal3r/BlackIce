@@ -2,8 +2,19 @@
 #include "classes/parser.hpp"
 #include "classes/config.hpp"
 #include <vector>
-#include <sys/types.h>
-#include <sys/stat.h>
+#include <chrono>
+#include <filesystem>
+#include <iomanip>
+#include <sstream>
+
+template <typename TP>
+std::time_t to_time_t(TP tp)
+{
+    using namespace std::chrono;
+    auto sctp = time_point_cast<system_clock::duration>(tp - TP::clock::now()
+              + system_clock::now());
+    return system_clock::to_time_t(sctp);
+}
 
 int main(int argc, char* argv[])
 {
@@ -23,16 +34,20 @@ int main(int argc, char* argv[])
 
   if (command_input[1] == "--test-metadata")
   {
-    std::cout << "Testing metadata for " << command_input[2] << " .....\n";
     std::string file = command_input[2];
-    struct stat result;
+    std::cout << "Testing metadata for " << file << " .....\n";
+
+    std::filesystem::file_time_type ftime = std::filesystem::last_write_time(file);
     
-    if (stat(file.c_str(), &result))
-    {
-      auto time = result.st_mtime;
-      std::cout << "Time last modified was: " << time << "\n";  
-    }
+    std::time_t tt = to_time_t(ftime);
+    std::tm *gmt = std::gmtime(&tt);
     
+    std::stringstream buffer;
+    buffer << std::put_time(gmt, "%A, %d %B %Y %H:%M");
+    std::string formattedFileTime = buffer.str();
+    
+    std::cout << "File write time is " << formattedFileTime << "\n";    
+
     return 0;
   }
   
