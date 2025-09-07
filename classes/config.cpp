@@ -5,12 +5,24 @@
 
 int ConfigHandler::write_file(std::string name)
 {
+  if (name == "")
+  {
+    throw std::invalid_argument("ConfigHandler: 'write_file()' requires a valid string.");
+    exit(1);
+  }
+
   (void)files.push_back(name);
   return 0;
 }
 
 int ConfigHandler::write_files(std::vector<std::string> names)
 {
+  if (names.size() == 0)
+  {
+    throw std::invalid_argument("ConfigHandler: 'write_files()' requires valid strings.");
+    exit(1);
+  }
+  
   for (int i = 0; i < names.size(); i++)
     (void)files.push_back(names[i]);
 
@@ -25,6 +37,12 @@ int ConfigHandler::remove_file(int loc)
 
 int ConfigHandler::remove_files(std::vector<int> locs)
 {
+  if (locs.size() == 0)
+  {
+    throw std::invalid_argument("ConfigHandler: 'remove_files()' requires valid integers.");
+    exit(1);
+  }
+
   for (int i = 0; i < locs.size(); i++)
   {
     if (i == 0)
@@ -60,4 +78,33 @@ int ConfigHandler::get_cpp_mode()
   }
 
   return cpp_mode;
+}
+
+int ConfigHandler::write_compiler_options(std::string options)
+{
+  if (options == "")
+  {
+    throw std::invalid_argument("ConfigHandler: 'write_compiler_options()' requires a valid string.");
+    exit(1);
+  }
+    
+  compiler_options = options;
+  return 0;
+}
+
+int ConfigHandler::clear_compiler_options()
+{
+  compiler_options = "";
+  return 0;
+}
+
+std::string ConfigHandler::get_compiler_options()
+{
+  if (compiler_options.length() == 0)
+  {
+    throw std::invalid_argument("ConfigHandler: compiler_options is not set.");
+    exit(1);
+  }
+
+  return compiler_options;
 }

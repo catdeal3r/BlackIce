@@ -7,6 +7,7 @@ class ConfigHandler
   private:
     std::vector<std::string> files;
     int cpp_mode = -1;
+    std::string compiler_options;
 
   public:
     int write_file(std::string);
@@ -17,4 +18,8 @@ class ConfigHandler
 
     int write_cpp_mode(int);
     int get_cpp_mode();
+
+    int write_compiler_options(std::string);
+    int clear_compiler_options();
+    std::string get_compiler_options();
 };
