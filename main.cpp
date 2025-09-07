@@ -43,7 +43,7 @@ int main(int argc, char* argv[])
     std::tm *gmt = std::gmtime(&tt);
     
     std::stringstream buffer;
-    buffer << std::put_time(gmt, "%A, %d %B %Y %H:%M");
+    buffer << std::put_time(gmt, "%A, %d %B %Y %H:%M:%S");
     std::string formattedFileTime = buffer.str();
     
     std::cout << "File write time is " << formattedFileTime << "\n";    
