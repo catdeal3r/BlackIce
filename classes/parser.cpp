@@ -172,10 +172,10 @@ int ParsingHandler::_test_parse_option(std::string key, std::string value)
 
 int ParsingHandler::remove_spaces_from_str(std::string s)
 {
-  if (s[0] == ' ')
+  if (s.front() == ' ')
     s.erase(0, 1);
 
-  if (s[s.length() - 1] == ' ')
+  if (s.back() == ' ')
     s.erase(s.size() - 1);
 
   return 0;
