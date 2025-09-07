@@ -1,6 +1,6 @@
 #include <iostream>
 //#include "parser.hpp"
-#include "config.hpp"
+#include "classes/config.hpp"
 #include <vector>
 
 int main()
