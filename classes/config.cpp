@@ -167,6 +167,7 @@ int ConfigHandler::write_generic_option(std::string key, std::string value)
         }
 
         current_str += c;
+        continue;
       }
       
       if (c == '"')
