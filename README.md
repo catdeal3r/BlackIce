@@ -7,4 +7,4 @@ It is designed to purely compile c and c++ code with gcc and g++, reading off of
 I created this project because:
 - I was frustrated with the complexity of cmake/make
 - I wanted something that could compile object files like cmake/make does to reduce compile times, which is something that a shell script would make annoying to implement.
-- Finally, for the learning value
+- Finally, for the learning value.
