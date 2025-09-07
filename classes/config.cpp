@@ -125,18 +125,24 @@ int ConfigHandler::write_generic_option(std::string key, std::string value)
 {
   std::cout << "Option received: '" << key << "=" << value << "'\n";
   
-  if (value.front() == '"')
-    value.erase(0, 1);
-    
-  if (value.back() == '"')
-    value.erase(value.size() - 1);
-
   if (key == "compiler")
   {
+    if (value.front() == '"')
+      value.erase(0, 1);
+    
+    if (value.back() == '"')
+      value.erase(value.size() - 1);
+    
     write_compiler(value);
   }
   else if (key == "compiler_options")
   {
+    if (value.front() == '"')
+      value.erase(0, 1);
+    
+    if (value.back() == '"')
+      value.erase(value.size() - 1);
+    
     write_compiler_options(value);
   }
   else if (key == "files")
