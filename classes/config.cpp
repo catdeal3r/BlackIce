@@ -156,7 +156,7 @@ int ConfigHandler::write_generic_option(std::string key, std::string value)
     for (char c : value)
     {
       std::cout << "Processing char '" << c << "'\n";
-      if (processing = true)
+      if (processing == true)
       {
         if (c == '"')
         {
