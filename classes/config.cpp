@@ -63,21 +63,33 @@ std::vector<std::string> ConfigHandler::get_files()
   return files;
 }
 
-int ConfigHandler::write_cpp_mode(int state)
+int ConfigHandler::write_compiler(std::string c)
 {
-  cpp_mode = state;
+  if (c == "")
+  {
+      throw std::invalid_argument("ConfigHandler: 'write_compiler()' requires a valid string.");
+      exit(1);
+  }
+
+  if (c != "g++" || c != "gcc")
+  {
+    std::cout << "Config error: the only supported compilers are: gcc g++\n";
+    exit(1);
+  }
+  
+  compiler = c;
   return 0;
 }
 
-int ConfigHandler::get_cpp_mode()
+std::string ConfigHandler::get_compiler()
 {
-  if (cpp_mode == -1)
+  if (compiler.length() == 0)
   {
-    throw std::invalid_argument("ConfigHandler: cpp_mode is not set.");
+    throw std::invalid_argument("ConfigHandler: compiler is not set.");
     exit(1);
   }
 
-  return cpp_mode;
+  return compiler;
 }
 
 int ConfigHandler::write_compiler_options(std::string options)
