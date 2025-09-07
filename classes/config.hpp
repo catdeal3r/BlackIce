@@ -22,4 +22,6 @@ class ConfigHandler
     int write_compiler_options(std::string);
     int clear_compiler_options();
     std::string get_compiler_options();
+
+    int write_generic_option(std::string, std::string);
 };

@@ -108,3 +108,9 @@ std::string ConfigHandler::get_compiler_options()
 
   return compiler_options;
 }
+
+int ConfigHandler::write_generic_option(std::string key, std::string value)
+{
+  std::cout << "Option received: '" << key << "=" << value << "'\n";
+  return 0;
+}
