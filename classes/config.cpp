@@ -147,20 +147,16 @@ int ConfigHandler::write_generic_option(std::string key, std::string value)
   }
   else if (key == "files")
   {
-    std::cout << "Value is: " << value << "\n";
-    
     std::vector<std::string> files;
     std::string current_str = "";
     bool processing = false;
 
     for (char c : value)
     {
-      std::cout << "Processing char '" << c << "'\n";
       if (processing == true)
       {
         if (c == '"')
         {
-          std::cout << "Ending string.\n";
           processing = false;
           files.push_back(current_str);
           current_str = "";
@@ -168,14 +164,10 @@ int ConfigHandler::write_generic_option(std::string key, std::string value)
         }
 
         current_str += c;
-        std::cout << "Adding char to string.\n";
       }
       
       if (c == '"')
-      {
         processing = true;
-        std::cout << "Creating new string";
-      }
     }
 
     for (std::string s : files)
