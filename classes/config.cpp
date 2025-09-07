@@ -128,12 +128,12 @@ int ConfigHandler::write_generic_option(std::string key, std::string value)
   
   if (key == "compiler")
   {
-    ParsingHandler::remove_double_quotes(value); 
+    value = ParsingHandler::parse_str(value); 
     write_compiler(value);
   }
   else if (key == "compiler_options")
   {
-    ParsingHandler::remove_double_quotes(value); 
+    value = ParsingHandler::parse_str(value); 
     write_compiler_options(value);
   }
   else if (key == "files")

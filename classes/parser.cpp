@@ -65,15 +65,29 @@ int ParsingHandler::parse_scfile()
   return 0;
 }
 
-int ParsingHandler::remove_double_quotes(std::string s)
+std::string ParsingHandler::parse_str(std::string s)
 {
-  if (s.front() == '"')
-    s.erase(0, 1);
-    
-  if (s.back() == '"')
-    s.erase(s.size() - 1);
+  std::string str = "";
+  bool processing = false;
 
-  return 0;
+  for (char c : s)
+  {
+    if (processing == true)
+    {
+      if (c == '"')
+      {
+        processing = false;
+        break;
+      }
+
+      str += c;
+    }
+      
+    if (c == '"')
+      processing = true;
+  }
+
+  return str;
 }
 
 std::vector<std::string> ParsingHandler::parse_array(std::string s)
@@ -143,12 +157,12 @@ int ParsingHandler::_test_parse_option(std::string key, std::string value)
 {
   if (key == "compiler")
   {
-    ParsingHandler::remove_double_quotes(value); 
+    value = ParsingHandler::parse_str(value); 
     std::cout << "Value for key '" << key << "' is: '" << value << "'\n";
   }
   else if (key == "compiler_options")
   {
-    ParsingHandler::remove_double_quotes(value); 
+    value = ParsingHandler::parse_str(value); 
     std::cout << "Value for key '" << key << "' is: '" << value << "'\n";
   }
   else if (key == "files")
