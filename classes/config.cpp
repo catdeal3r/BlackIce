@@ -144,6 +144,7 @@ int ConfigHandler::write_generic_option(std::string key, std::string value)
     std::vector<std::string> files;
     std::string current_str;
     bool processing = false;
+
     for (char c : value)
     {
       if (processing = true)
@@ -163,8 +164,8 @@ int ConfigHandler::write_generic_option(std::string key, std::string value)
         processing = true;
     }
 
-    for (std::string s : files)
-      std::cout << s << ", ";
+    for (int i = 0; i < files.size(); i++)
+      std::cout << files[i] << ", ";
 
     std::cout << "\b\b.\n";
   }
