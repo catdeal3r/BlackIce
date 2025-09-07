@@ -1,6 +1,7 @@
 #pragma once
 #include <iostream>
 #include <fstream>
+#include <vector>
 
 class ParsingHandler
 {
@@ -13,4 +14,7 @@ class ParsingHandler
     int clear_scfile_loc();
 
     int parse_scfile();
+
+    static int remove_double_quotes(std::string);
+    static std::vector<std::string> parse_array(std::string);
 };

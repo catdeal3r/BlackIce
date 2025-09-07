@@ -1,5 +1,5 @@
 #include "config.hpp"
-#include "helper.hpp"
+#include "parser.hpp"
 #include <iostream>
 #include <vector>
 #include <cstdlib>
@@ -128,39 +128,17 @@ int ConfigHandler::write_generic_option(std::string key, std::string value)
   
   if (key == "compiler")
   {
-    Helper::remove_double_quotes(value); 
+    ParsingHandler::remove_double_quotes(value); 
     write_compiler(value);
   }
   else if (key == "compiler_options")
   {
-    Helper::remove_double_quotes(value); 
+    ParsingHandler::remove_double_quotes(value); 
     write_compiler_options(value);
   }
   else if (key == "files")
   {
-    std::vector<std::string> files;
-    std::string current_str = "";
-    bool processing = false;
-
-    for (char c : value)
-    {
-      if (processing == true)
-      {
-        if (c == '"')
-        {
-          processing = false;
-          files.push_back(current_str);
-          current_str = "";
-          continue;
-        }
-
-        current_str += c;
-      }
-      
-      if (c == '"')
-        processing = true;
-    }
-
+    std::vector<std::string> files = ParsingHandler::parse_array(value);
     write_files(files);
   }
   else
