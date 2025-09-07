@@ -172,6 +172,8 @@ int ParsingHandler::_test_parse_option(std::string key, std::string value)
 
 int ParsingHandler::remove_spaces_from_str(std::string s)
 {
+  std::cout << "String is " << s << "\n";
+  
   if (s.front() == ' ')
     s.erase(0, 1);
 
