@@ -23,7 +23,7 @@ int main(int argc, char* argv[])
 
   if (command_input[1] == "--test-metadata")
   {
-    std::cout << "Testing metadata .....\n";
+    std::cout << "Testing metadata for " << command_input[2] << " .....\n";
     std::string file = command_input[2];
     struct stat result;
     
