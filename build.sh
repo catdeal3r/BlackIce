@@ -17,7 +17,7 @@ function build_test()
 function build_fin()
 {
   mkdir ./release
-  g++ -o ./debug/sc ./main.cpp ./classes/config.cpp ./classes/config.hpp ./classes/parser.hpp ./classes/parser.cpp && compiled=true
+  g++ -o ./release/sc ./main.cpp ./classes/config.cpp ./classes/config.hpp ./classes/parser.hpp ./classes/parser.cpp && compiled=true
   if [[ "$compiled" == "true" ]] && [[ "$1" != "" ]]; then
     git add .
     git commit -m "$1" && git push
