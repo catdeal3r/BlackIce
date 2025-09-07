@@ -53,8 +53,12 @@ int ParsingHandler::parse_scfile()
       continue;
     
     std::string value;
-    if (std::getline(is_line, value))
-      ch.write_generic_option(key, value);
+    if (!std::getline(is_line, value))
+      continue;
+
+    key.erase(key.size() - 1);
+    value.erase(0, 1);
+    ch.write_generic_option(key, value);
   }
   
   file.close();
