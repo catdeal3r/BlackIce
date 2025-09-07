@@ -138,8 +138,7 @@ int ConfigHandler::write_generic_option(std::string key, std::string value)
   }
   else if (key == "files")
   {
-    std::vector<std::string> files = ParsingHandler::parse_array(value);
-    write_files(files);
+    write_files(ParsingHandler::parse_array(value));
   }
   else
   {
