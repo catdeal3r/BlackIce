@@ -9,7 +9,6 @@
 class CompileHandler
 {
   private:
-    template <typename TP>
     std::time_t to_time_t(TP);
 
   public:
