@@ -129,8 +129,8 @@ int ParsingHandler::_test_parse_scfile()
     if (!std::getline(is_line, value))
       continue;
 
-    remove_spaces_from_str(key);
-    remove_spaces_from_str(value);
+    key = remove_spaces_from_str(key);
+    value = remove_spaces_from_str(value);
     
     _test_parse_option(key, value);
   }
@@ -170,7 +170,7 @@ int ParsingHandler::_test_parse_option(std::string key, std::string value)
   return 0;
 }
 
-int ParsingHandler::remove_spaces_from_str(std::string s)
+std::string ParsingHandler::remove_spaces_from_str(std::string s)
 {
   std::cout << "String is '" << s << "'\n";
   
@@ -182,5 +182,5 @@ int ParsingHandler::remove_spaces_from_str(std::string s)
   
   std::cout << "String is now '" << s << "'\n";
 
-  return 0;
+  return s;
 }
