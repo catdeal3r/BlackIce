@@ -25,7 +25,7 @@ std::string CompileHandler::get_time_metadata_file(std::string file)
   std::tm *gmt = std::gmtime(&tt);
     
   std::stringstream buf;
-  buf << gmt; //std::put_time(gmt, "%A, %d %B %Y %H:%M:%S");
+  buf << tt;
   std::string formatted_file_time = buf.str();
 
   return formatted_file_time;
