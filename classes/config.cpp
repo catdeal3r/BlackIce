@@ -73,7 +73,7 @@ int ConfigHandler::write_compiler(std::string c)
 
   if (c != "g++" || c != "gcc")
   {
-    std::cout << "Config error: the only supported compilers are: gcc g++\n";
+    std::cout << "Config error: unsupported compiler: '" << c << "'.\n";
     exit(1);
   }
   
