@@ -56,8 +56,9 @@ int ParsingHandler::parse_scfile()
     if (!std::getline(is_line, value))
       continue;
 
-    key.erase(key.size() - 1);
-    value.erase(0, 1);
+    key = remove_spaces_from_str(key);
+    value = remove_spaces_from_str(value);
+
     ch.write_generic_option(key, value);
   }
   
