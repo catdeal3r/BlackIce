@@ -124,6 +124,12 @@ std::string ConfigHandler::get_compiler_options()
 int ConfigHandler::write_generic_option(std::string key, std::string value)
 {
   std::cout << "Option received: '" << key << "=" << value << "'\n";
+  
+  if (value.front() == '"')
+    value.erase(0, 1);
+    
+  if (value.back() == '"')
+    value.erase(value.size() - 1);
 
   if (key == "compiler")
   {
@@ -131,13 +137,36 @@ int ConfigHandler::write_generic_option(std::string key, std::string value)
   }
   else if (key == "compiler_options")
   {
-    if (value.front() == '"')
-      value.erase(0, 1);
-    
-    if (value.back() == '"')
-      value.erase(value.size() - 1);
-    
     write_compiler_options(value);
+  }
+  else if (key == "files")
+  {
+    std::vector<std::string> files;
+    std::string current_str;
+    bool processing = false;
+    for (char c : value)
+    {
+      if (processing = true)
+      {
+        if (c == '"')
+        {
+          processing = false;
+          files.push_back(current_str);
+          current_str = "";
+          continue;
+        }
+
+        current_str += c;
+      }
+      
+      if (c == '"')
+        processing = true;
+    }
+
+    for (std::string s : files)
+      std::cout << s << ", ";
+
+    std::cout << "\b\b.\n";
   }
   else
   {
