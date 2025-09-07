@@ -164,8 +164,8 @@ int ConfigHandler::write_generic_option(std::string key, std::string value)
         processing = true;
     }
 
-    for (int i = 0; i < files.size(); i++)
-      std::cout << files[i] << ", ";
+    for (std::string s : files)
+      std::cout << s << ", ";
 
     std::cout << "\b\b.\n";
   }
