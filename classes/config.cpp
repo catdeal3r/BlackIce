@@ -124,5 +124,16 @@ std::string ConfigHandler::get_compiler_options()
 int ConfigHandler::write_generic_option(std::string key, std::string value)
 {
   std::cout << "Option received: '" << key << "=" << value << "'\n";
+
+  if (key == "compiler")
+  {
+    write_compiler(value);
+  }
+  else
+  {
+    std::cout << "Unrecognized config key: '" << key << "'\n";
+    exit(1);
+  }
+  
   return 0;
 }
