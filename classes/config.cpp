@@ -131,6 +131,12 @@ int ConfigHandler::write_generic_option(std::string key, std::string value)
   }
   else if (key == "compiler_options")
   {
+    if (value.front() == '"')
+      value.erase(0, 1);
+    
+    if (value.back() == '"')
+      value.erase(value.size() - 1);
+    
     write_compiler_options(value);
   }
   else
