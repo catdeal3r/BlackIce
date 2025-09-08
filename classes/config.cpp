@@ -18,13 +18,12 @@ int ConfigHandler::write_file(std::string name)
 
 int ConfigHandler::write_files(std::vector<std::string> names)
 {
-  if (names.size() == 0)
+  if (names.empty())
   {
     throw std::invalid_argument("ConfigHandler: 'write_files()' requires valid strings.");
-    exit(1);
   }
   
-  for (std::string s : names)
+  for (const std::string& s : names)
     files.push_back(s);
 
   return 0;
@@ -38,10 +37,9 @@ int ConfigHandler::remove_file(int loc)
 
 int ConfigHandler::remove_files(std::vector<int> locs)
 {
-  if (locs.size() == 0)
+  if (locs.empty())
   {
     throw std::invalid_argument("ConfigHandler: 'remove_files()' requires valid integers.");
-    exit(1);
   }
 
   for (int i = 0; i < locs.size(); i++)
@@ -57,9 +55,8 @@ int ConfigHandler::remove_files(std::vector<int> locs)
 
 std::vector<std::string> ConfigHandler::get_files()
 {
-  if (files.size() == 0) {
+  if (files.empty()) {
     throw std::invalid_argument("ConfigHandler: files are not set.");
-    exit(1);
   }
   
   return files;
@@ -140,10 +137,7 @@ int ConfigHandler::write_generic_option(std::string key, std::string value)
   else if (key == "files")
   {
     std::vector<std::string> files = ParsingHandler::parse_array(value);
-
-    //for (int i)
-    
-    write_files({ "hello testing" });
+    write_files(files);
   }
   else
   {
