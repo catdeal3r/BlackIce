@@ -58,8 +58,6 @@ int ConfigHandler::remove_files(std::vector<int> locs)
 
 std::vector<std::string> ConfigHandler::get_files()
 {
-  std::cout << "This 'get_files()': " << this << "\n";
-
   if (files.empty()) {
     throw std::invalid_argument("ConfigHandler: files are not set.");
   }
@@ -127,9 +125,6 @@ std::string ConfigHandler::get_compiler_options()
 
 int ConfigHandler::write_generic_option(std::string key, std::string value)
 {
-  std::cout << "This 'write_generic_option()': " << this << "\n";
-  std::cout << "Option received: '" << key << "=" << value << "'\n";
-  
   if (key == "compiler")
   {
     value = ParsingHandler::parse_str(value); 
