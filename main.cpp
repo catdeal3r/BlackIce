@@ -10,6 +10,7 @@ int main(int argc, char* argv[])
   
   ParsingHandler ph;
   CompileHandler ch;
+  ConfigHandler h;
   
   if (argc > 1)
   {
@@ -36,6 +37,6 @@ int main(int argc, char* argv[])
     }
   }
   
-  ph.parse_scfile();
-  ch.update_mapped_time_file();
+  ph.parse_scfile(h);
+  ch.update_mapped_time_file(h);
 }

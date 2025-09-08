@@ -31,9 +31,8 @@ int ParsingHandler::clear_scfile_loc()
   return 0;
 }
 
-int ParsingHandler::parse_scfile()
+int ParsingHandler::parse_scfile(ConfigHandler h)
 {
-  ConfigHandler ch;
   std::fstream file = open_scfile_loc();
 
   if (!file.is_open())
@@ -59,7 +58,7 @@ int ParsingHandler::parse_scfile()
     key = remove_spaces_from_str(key);
     value = remove_spaces_from_str(value);
 
-    ch.write_generic_option(key, value);
+    h.write_generic_option(key, value);
   }
   
   file.close();

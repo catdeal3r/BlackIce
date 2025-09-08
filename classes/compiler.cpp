@@ -41,7 +41,7 @@ std::unordered_map<std::string, std::string> CompileHandler::load_mapped_time_fi
   return mapped_times;
 }
 
-int CompileHandler::update_mapped_time_file()
+int CompileHandler::update_mapped_time_file(ConfigHandler ch)
 {
   std::fstream file(".sccache", std::ios::out);
 
@@ -51,8 +51,6 @@ int CompileHandler::update_mapped_time_file()
     throw std::invalid_argument("CompileHandler: 'write_mapped_time_file()' failed because .sccache file is unwrittable");
     exit(1);
   }
-
-  ConfigHandler ch;
 
   std::vector<std::string> files = ch.get_files();
 
