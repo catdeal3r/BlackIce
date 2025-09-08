@@ -5,7 +5,7 @@
 class ConfigHandler
 {
   private:
-    std::vector<std::string> files = { "jsdhf" };
+    std::vector<std::string> files;
     std::string compiler;
     std::string compiler_options;
 
