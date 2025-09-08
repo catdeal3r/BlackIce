@@ -57,13 +57,10 @@ int ConfigHandler::remove_files(std::vector<int> locs)
 
 std::vector<std::string> ConfigHandler::get_files()
 {
-  /*if (files.size() == 0){
+  if (files.size() == 0){
     throw std::invalid_argument("ConfigHandler: files are not set.");
     exit(1);
-  }*/
-
-  for (std::string s : ConfigHandler::files)
-    std::cout << s << "\n";
+  }
   
   return files;
 }
