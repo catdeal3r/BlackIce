@@ -15,7 +15,7 @@ class ParsingHandler
     int write_scfile_loc(std::string);
     int clear_scfile_loc();
 
-    int parse_scfile(ConfigHandler);
+    int parse_scfile(ConfigHandler&);
     
     int _test_parse_scfile();
     int _test_parse_option(std::string, std::string);

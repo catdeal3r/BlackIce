@@ -31,7 +31,7 @@ int ParsingHandler::clear_scfile_loc()
   return 0;
 }
 
-int ParsingHandler::parse_scfile(ConfigHandler h)
+int ParsingHandler::parse_scfile(ConfigHandler& h)
 {
   std::fstream file = open_scfile_loc();
 

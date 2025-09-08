@@ -15,7 +15,7 @@ class CompileHandler
 
   public:
     std::unordered_map<std::string, std::string> load_mapped_time_file();
-    int update_mapped_time_file(ConfigHandler);
+    int update_mapped_time_file(ConfigHandler&);
 
     std::string get_time_metadata_file(std::string);
 };
