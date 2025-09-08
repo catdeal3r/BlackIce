@@ -39,10 +39,46 @@ int main(int argc, char* argv[])
   }
 
   ph.parse_scfile(h);
-  //ch.update_mapped_time_file(h);
+  std::vector<std::string> files = h.get_files();
   std::unordered_map<std::string, std::string> times_and_files = ch.load_mapped_time_file();
 
-  for (auto& x : times_and_files)
-    std::cout << x.first << ": " << x.second << std::endl;
-  
+  bool is_new_files;
+  for (const std::string& s : files)
+  {
+    bool is_new = true;
+    for (auto& x : times_and_files)
+    {
+      if (x.first == s)
+        is_new = false;
+    }
+
+    if (is_new == true)
+    {
+      is_new_files = true;
+    }
+  }
+
+
+  if (times_and_files.empty() || is_new_files == true)
+  {
+    ch.write_files_recompile_needed(h.get_files());
+  }
+  else 
+  {
+    for (auto& x : times_and_files)
+    {
+      std::string file = x.first;
+      std::string time = x.second;
+
+      std::string current_time = ch.get_time_metadata_file(file);
+
+      if (time != current_time)
+      {
+        ch.write_files_recompile_needed({file});
+      }
+    }
+  }
+
+
+  //ch.update_mapped_time_file(h);
 }

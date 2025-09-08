@@ -1,3 +1,3 @@
 compiler = "g++"
 compiler_options = "-Loptions -lin -lthe -lnoiseh"
-files = "scfile"
+files = "scfile" "testing.txt"

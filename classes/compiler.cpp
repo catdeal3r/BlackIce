@@ -61,6 +61,9 @@ std::unordered_map<std::string, std::string> CompileHandler::load_mapped_time_fi
     key = ParsingHandler::remove_spaces_from_str(key);
     value = ParsingHandler::remove_spaces_from_str(value);
 
+    key = ParsingHandler::parse_str(key);
+    value = ParsingHandler::parse_str(value);
+
     mapped_times.insert({key, value});
   }
   
@@ -91,5 +94,19 @@ int CompileHandler::update_mapped_time_file(ConfigHandler& h)
 
   file << formatted_output;
   
+  return 0;
+}
+
+
+int CompileHandler::write_files_recompile_needed(std::vector<std::string> names)
+{
+  if (names.empty())
+  {
+    throw std::invalid_argument("CompileHandler: 'write_files_recompile_needed()' requires valid strings.");
+  }
+  
+  for (const std::string& s : names)
+    files_recompile_needed.push_back(s);
+
   return 0;
 }
