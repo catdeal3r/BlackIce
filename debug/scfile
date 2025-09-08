@@ -1,3 +1,3 @@
-compiler= "g++"
+compiler = "g++"
 compiler_options = "-Loptions -lin -lthe -lnoise"
-files= "files" "in" "the" "noise"
+files = "scfile"

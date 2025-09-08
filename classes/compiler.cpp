@@ -59,9 +59,9 @@ int CompileHandler::update_mapped_time_file()
 
   for (std::string s : files)
   {
-    formatted_output += "\"" + s + "\"=\"";
+    formatted_output += "\""; formatted_output += s; formatted_output += "\"=\"";
     std::string time_metadata = get_time_metadata_file(s);
-    formatted_output += time_metadata + "\"\n";
+    formatted_output += time_metadata; formatted_output += "\"\n";
   }
 
   std::cout << formatted_output;
