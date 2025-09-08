@@ -25,8 +25,6 @@ int main(int argc, char* argv[])
   {
     std::string file = command_input[2];
     std::cout << "Testing metadata for " << file << " .....\n";
-
-    CompileHandler ch;
     
     std::string time = ch.get_time_metadata_file(file); 
     std::cout << "File write time is " << time << "\n";    
@@ -35,5 +33,5 @@ int main(int argc, char* argv[])
   }
   
   ph.parse_scfile();
-  ch.update_mapped_time_file();
+  //ch.update_mapped_time_file();
 }
