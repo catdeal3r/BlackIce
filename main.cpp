@@ -3,6 +3,7 @@
 #include "classes/config.hpp"
 #include "classes/compiler.hpp"
 #include <vector>
+#include <unordered_map>
 
 int main(int argc, char* argv[])
 {
@@ -38,5 +39,10 @@ int main(int argc, char* argv[])
   }
 
   ph.parse_scfile(h);
-  ch.update_mapped_time_file(h);
+  //ch.update_mapped_time_file(h);
+  std::unordered_map<std::string, std::string> times_and_files = ch.load_mapped_time_file();
+
+  for (auto& x : times_and_files)
+    std::cout << x.first << ": " << x.second << std::endl;
+  
 }

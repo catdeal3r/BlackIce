@@ -34,9 +34,35 @@ std::string CompileHandler::get_time_metadata_file(std::string file)
 
 std::unordered_map<std::string, std::string> CompileHandler::load_mapped_time_file()
 {
-  std::unordered_map<std::string, std::string> mapped_times;
+  std::unordered_map<std::string, std::string> mapped_times = {};
 
+  std::fstream file(".sccache", std::ios::in);
   
+  if (file.fail() || !file.is_open())
+  {
+    file.close();
+    throw std::invalid_argument("CompileHandler: 'write_mapped_time_file()' failed because .sccache file is unreadable");
+    exit(1);
+  }
+
+  std::string line;
+  while (std::getline(file, line))
+  {
+    std::istringstream is_line(line);
+    std::string key;
+
+    if (!std::getline(is_line, key, '='))
+      continue;
+
+    std::string value;
+    if (!std::getline(is_line, value))
+      continue;
+
+    key = ParsingHandler::remove_spaces_from_str(key);
+    value = ParsingHandler::remove_spaces_from_str(value);
+
+    mapped_times.insert({key, value});
+  }
   
   return mapped_times;
 }
