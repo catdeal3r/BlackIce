@@ -53,18 +53,15 @@ int CompileHandler::update_mapped_time_file(ConfigHandler& h)
   }
 
   std::vector<std::string> files = h.get_files();
-
-  for (std::string s : files)
-    std::cout << s << "\n";
   
   std::string formatted_output;
 
-  /*for (std::string s : files)
+  for (std::string s : files)
   {
     formatted_output += "\""; formatted_output += s; formatted_output += "\"=\"";
     std::string time_metadata = get_time_metadata_file(s);
     formatted_output += time_metadata; formatted_output += "\"\n";
-  }*/
+  }
 
   std::cout << formatted_output;
   
