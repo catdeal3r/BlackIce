@@ -24,8 +24,8 @@ int ConfigHandler::write_files(std::vector<std::string> names)
     exit(1);
   }
   
-  for (int i = 0; i < names.size(); i++)
-    (void)files.push_back(names[i]);
+  for (std::string s : names)
+    files.push_back(s);
 
   return 0;
 }
