@@ -57,7 +57,7 @@ int ConfigHandler::remove_files(std::vector<int> locs)
 
 std::vector<std::string> ConfigHandler::get_files()
 {
-  if (files.size() == 0){
+  if (files.size() == 0) {
     throw std::invalid_argument("ConfigHandler: files are not set.");
     exit(1);
   }
@@ -140,7 +140,10 @@ int ConfigHandler::write_generic_option(std::string key, std::string value)
   else if (key == "files")
   {
     std::vector<std::string> files = ParsingHandler::parse_array(value);
-    write_files(files);
+
+    //for (int i)
+    
+    write_files({ "hello testing" });
   }
   else
   {
