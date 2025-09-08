@@ -62,7 +62,7 @@ std::vector<std::string> ConfigHandler::get_files()
     exit(1);
   }*/
 
-  for (std::string s : files)
+  for (std::string s : ConfigHandler::files)
     std::cout << s << "\n";
   
   return files;
