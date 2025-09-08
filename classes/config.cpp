@@ -25,7 +25,10 @@ int ConfigHandler::write_files(std::vector<std::string> names)
   }
   
   for (std::string s : names)
+  {
+    std::cout << s << "\n";
     files.push_back(s);
+  }
 
   return 0;
 }

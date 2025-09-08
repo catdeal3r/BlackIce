@@ -116,9 +116,6 @@ std::vector<std::string> ParsingHandler::parse_array(std::string s)
       processing = true;
   }
 
-  for (std::string s : array)
-    std::cout << s << "\n";
-
   return array;
 }
 
