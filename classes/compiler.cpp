@@ -41,7 +41,7 @@ std::unordered_map<std::string, std::string> CompileHandler::load_mapped_time_fi
   return mapped_times;
 }
 
-int CompileHandler::update_mapped_time_file(ConfigHandler ch)
+int CompileHandler::update_mapped_time_file(ConfigHandler h)
 {
   std::fstream file(".sccache", std::ios::out);
 
@@ -52,7 +52,7 @@ int CompileHandler::update_mapped_time_file(ConfigHandler ch)
     exit(1);
   }
 
-  std::vector<std::string> files = ch.get_files();
+  std::vector<std::string> files = h.get_files();
 
   for (std::string s : files)
     std::cout << s << "\n";
