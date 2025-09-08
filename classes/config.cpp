@@ -25,13 +25,7 @@ int ConfigHandler::write_files(std::vector<std::string> names)
   }
   
   for (std::string s : names)
-  {
-    std::cout << s << "\n";
     files.push_back(s);
-  }
-
-  for (std::string s : files)
-    std::cout << s << "\n";
 
   return 0;
 }
@@ -67,6 +61,10 @@ std::vector<std::string> ConfigHandler::get_files()
     throw std::invalid_argument("ConfigHandler: files are not set.");
     exit(1);
   }*/
+
+  for (std::string s : files)
+    std::cout << s << "\n";
+  
   return files;
 }
 
