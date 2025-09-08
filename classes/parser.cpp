@@ -43,8 +43,6 @@ int ParsingHandler::parse_scfile()
     exit(1);
   }
 
-  std::cout << "Opened file\n";
-
   std::string line;
   while (std::getline(file, line))
   {

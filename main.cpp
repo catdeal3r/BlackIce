@@ -8,7 +8,7 @@ int main(int argc, char* argv[])
 {
   std::vector<std::string> command_input;
   
-  for (int i = 0; i < argc; i++)
+  for (int i = 0; i < argc - 1; i++)
     command_input.push_back(argv[i]);
   
   ParsingHandler ph;
@@ -33,5 +33,5 @@ int main(int argc, char* argv[])
   }
   
   ph.parse_scfile();
-  //ch.update_mapped_time_file();
+  ch.update_mapped_time_file();
 }
