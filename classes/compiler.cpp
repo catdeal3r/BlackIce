@@ -108,5 +108,8 @@ int CompileHandler::write_files_recompile_needed(std::vector<std::string> names)
   for (const std::string& s : names)
     files_recompile_needed.push_back(s);
 
+  for (const std::string& s : files_recompile_needed)
+    std::cout << s << "\n";
+
   return 0;
 }
