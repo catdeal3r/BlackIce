@@ -36,7 +36,13 @@ int main(int argc, char* argv[])
       return 0;
     }
   }
-  
+
   ph.parse_scfile(h);
+
+  std::vector<std::string> list = h.get_files();
+
+  for (const std::string& s : list)
+    std::cout << s << "\n";
+
   ch.update_mapped_time_file(h);
 }
