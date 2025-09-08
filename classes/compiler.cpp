@@ -1,11 +1,13 @@
 #include "parser.hpp"
 #include "compiler.hpp"
+#include "config.hpp"
 #include <unordered_map>
 #include <iostream>
 #include <iomanip>
 #include <sstream>
 #include <chrono>
 #include <filesystem>
+#include <vector>
 
 template <typename TP>
 std::time_t CompileHandler::to_time_t(TP tp)
@@ -28,4 +30,41 @@ std::string CompileHandler::get_time_metadata_file(std::string file)
   std::string formatted_file_time = buf.str();
 
   return formatted_file_time;
+}
+
+std::unordered_map<std::string, std::string> CompileHandler::load_mapped_time_file()
+{
+  std::unordered_map<std::string, std::string> mapped_times;
+
+  
+  
+  return mapped_times;
+}
+
+int CompileHandler::update_mapped_time_file()
+{
+  std::fstream file(".sccache", std::ios::out);
+
+  if (file.fail() || !file.is_open())
+  {
+    file.close();
+    throw std::invalid_argument("CompileHandler: 'write_mapped_time_file()' failed because .sccache file is unwrittable");
+    exit(1);
+  }
+
+  ConfigHandler ch;
+
+  std::vector<std::string> files = ch.get_files();
+  std::string formatted_output;
+
+  for (std::string s : files)
+  {
+    formatted_output += "\"" + s + "\"=\"";
+    std::string time_metadata = get_time_metadata_file(s);
+    formatted_output += time_metadata + "\"\n";
+  }
+
+  std::cout << formatted_output;
+  
+  return 0;
 }

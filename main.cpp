@@ -12,6 +12,7 @@ int main(int argc, char* argv[])
     command_input.push_back(argv[i]);
   
   ParsingHandler ph;
+  CompileHandler ch;
 
   if (command_input[1] == "--test-parse")
   {
@@ -34,4 +35,5 @@ int main(int argc, char* argv[])
   }
   
   ph.parse_scfile();
+  ch.update_mapped_time_file();
 }
