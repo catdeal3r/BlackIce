@@ -8,8 +8,11 @@ int main(int argc, char* argv[])
 {
   std::vector<std::string> command_input;
   
-  for (int i = 0; i < argc - 1; i++)
-    command_input.push_back(argv[i]);
+  if (argc > 1)
+  {
+    for (int i = 0; i < sizeof(argv); i++)
+      command_input.push_back(argv[i]);
+  }
   
   ParsingHandler ph;
   CompileHandler ch;
