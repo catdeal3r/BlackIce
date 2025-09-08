@@ -10,7 +10,7 @@ int main(int argc, char* argv[])
   
   if (argc > 1)
   {
-    for (int i = 0; i < sizeof(argv); i++)
+    for (int i = 0; i < argc; i++)
       command_input.push_back(argv[i]);
   }
   
