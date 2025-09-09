@@ -160,7 +160,7 @@ int CompileHandler::compile(ConfigHandler& h)
       file[file.length() - 1] = 'o';
     }
 
-    if (file[file.length() - 1] != 'h' && file[file.length() - 2] != 'c' && file[file.length() - 3] != 'g')
+    if (file[file.length() - 1] != 'p' && file[file.length() - 2] != 'p' && file[file.length() - 3] != 'h')
     {
       cmd_two += s + " ";
     }
