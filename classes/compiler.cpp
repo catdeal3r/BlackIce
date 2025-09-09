@@ -143,17 +143,36 @@ int CompileHandler::compile(ConfigHandler& h)
 
   for (const std::string& s : files_recompile_needed)
     cmd += s + " ";
-
   
   std::string cmd_two = h.get_compiler();
   cmd_two += " -o a.out ";
 
   for (const std::string& s : h.get_files())
-    cmd_two += s + " ";
+  {
+    std::string file = s;
+    if (file.back() == 'c')
+    {
+      file[file.length() - 1] = 'o';
+    }
+    else if (file.back() == 'p' && file[file.length() - 2] == 'p' && file[file.length() - 3] == 'c')
+    {
+      file.erase(file.length() - 2);
+      file[file.length() - 1] = 'o';
+    }
+
+    if (file[file.length() - 1] != 'h' && file[file.length() - 2] != 'c' && file[file.length() - 3] != 'g')
+    {
+      cmd_two += s + " ";
+    }
+  }
 
   std::cout << cmd << "\n";
   std::cout << cmd_two << "\n";
 
-  //std::string compile = get_stdout_cmd();
+
+  if (!files_recompile_needed.empty())
+    //std::string compile = get_stdout_cmd(cmd);
+
+  std::string link = get_stdout_cmd(cmd_two);
   return 0;
 }
