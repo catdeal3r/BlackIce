@@ -18,6 +18,28 @@ std::time_t CompileHandler::to_time_t(TP tp)
     return system_clock::to_time_t(sctp);
 }
 
+std::string CompileHandler::get_stdout_cmd(std::string cmd)
+{
+  std::string d;
+  FILE *stream;
+
+  const int max_buffer = 256;
+  char buffer[max_buffer];
+
+  cmd.append(" 2>&1");
+
+  stream = popen(cmd.c_str(), "r");
+
+  if (stream)
+  {
+    while (!feof(stream))
+      if (fgets(buffer, max_buffer, stream) != NULL) d.append(buffer);
+
+    pclose(stream);
+  }
+
+  return d;
+}
 
 std::string CompileHandler::get_time_metadata_file(std::string file)
 {
@@ -111,5 +133,27 @@ int CompileHandler::write_files_recompile_needed(std::vector<std::string> names)
   for (const std::string& s : files_recompile_needed)
     std::cout << s << "\n";
 
+  return 0;
+}
+
+int CompileHandler::compile(ConfigHandler& h)
+{
+  std::string cmd = h.get_compiler();
+  cmd += " -c ";
+
+  for (const std::string& s : files_recompile_needed)
+    cmd += s + " ";
+
+  
+  std::string cmd_two = h.get_compiler();
+  cmd += " -o a.out ";
+
+  for (const std::string& s : h.get_files())
+    cmd_two += s + " ";
+
+  std::cout << cmd << "\n";
+  std::cout << cmd_two << "\n";
+
+  //std::string compile = get_stdout_cmd();
   return 0;
 }

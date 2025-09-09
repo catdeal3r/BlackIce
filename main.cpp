@@ -79,5 +79,7 @@ int main(int argc, char* argv[])
     }
   }
 
+  ch.compile(h);
+
   ch.update_mapped_time_file(h);
 }

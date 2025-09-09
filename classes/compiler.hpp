@@ -13,6 +13,7 @@ class CompileHandler
     template <typename TP>
     std::time_t to_time_t(TP);
     std::vector<std::string> files_recompile_needed;
+    std::string get_stdout_cmd(std::string);
 
   public:
     std::unordered_map<std::string, std::string> load_mapped_time_file();
@@ -21,4 +22,6 @@ class CompileHandler
     std::string get_time_metadata_file(std::string);
 
     int write_files_recompile_needed(std::vector<std::string>);
+
+    int compile(ConfigHandler&);
 };
