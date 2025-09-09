@@ -162,7 +162,7 @@ int CompileHandler::compile(ConfigHandler& h)
 
     if (file[file.length() - 1] != 'p' && file[file.length() - 2] != 'p' && file[file.length() - 3] != 'h')
     {
-      cmd_two += s + " ";
+      cmd_two += file + " ";
     }
   }
 
