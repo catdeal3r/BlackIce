@@ -171,7 +171,7 @@ int CompileHandler::compile(ConfigHandler& h)
 
 
   if (!files_recompile_needed.empty())
-    //std::string compile = get_stdout_cmd(cmd);
+    std::string compile = get_stdout_cmd(cmd);
 
   std::string link = get_stdout_cmd(cmd_two);
   return 0;
