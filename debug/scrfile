@@ -1,4 +1,4 @@
 compiler = "g++"
-compiler_options = "-Loptions -lin -lthe -lnoise"
+compiler_options = "sdfhsd&UJHYTGHN"
 files = "main.cpp" "test.hpp" "test.cpp"
 output_file = "banger.hello"

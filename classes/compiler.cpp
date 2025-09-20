@@ -189,10 +189,10 @@ int CompileHandler::compile(ConfigHandler& h)
 
   std::string link = get_stdout_cmd(cmd_two);
 
-  if (!compile.empty())
+  //if (!compile.empty())
     std::cout << compile;
 
-  if (!link.empty())
+  //if (!link.empty())
     std::cout << link;
 
   return 0;
