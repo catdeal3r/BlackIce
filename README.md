@@ -47,7 +47,7 @@ chmod +x ./compile.sh
 ./compile.sh install
 ```
 
-To install it (to `/usr/bin`) as well.
+To install it to `/usr/bin` as well.
 
 
 ## Roadmap
