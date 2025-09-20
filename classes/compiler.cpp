@@ -142,6 +142,8 @@ int CompileHandler::compile(ConfigHandler& h)
 
   for (const std::string& s : files_recompile_needed)
     cmd += s + " ";
+
+  cmd += h.get_compiler_options();
   
   std::string cmd_two = h.get_compiler();
   cmd_two += " -o ";
@@ -179,7 +181,6 @@ int CompileHandler::compile(ConfigHandler& h)
   /*std::cout << cmd << "\n";
   std::cout << cmd_two << "\n";*/
 
-  // init compile var so no errors
   std::string compile = "";
 
   if (!files_recompile_needed.empty())

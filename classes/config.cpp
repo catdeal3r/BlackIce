@@ -105,13 +105,10 @@ int ConfigHandler::write_compiler_options(std::string options)
 
 std::string ConfigHandler::get_compiler_options()
 {
-  if (compiler_options.length() == 0)
-  {
-    throw std::invalid_argument("ConfigHandler: compiler_options is not set.");
-    exit(1);
-  }
+  if (compiler_options.length() != 0)
+    return compiler_options;
 
-  return compiler_options;
+  return "";
 }
 
 int ConfigHandler::write_output_file(std::string name)
