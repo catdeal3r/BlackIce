@@ -56,6 +56,7 @@ To install it to `/usr/bin` as well.
 - [x] Setup support for multiple files, custom compiler, and compiler flags.
 - [x] Detect whether a file has been added or been modified.
 - [x] Implement basic compiling support for C++.
+- [x] Custom output file name.
 - [ ] Fully support C.
 - [ ] Multiple targets for different compiles.
 - [ ] Run commands after completion.

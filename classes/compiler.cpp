@@ -20,25 +20,23 @@ std::time_t CompileHandler::to_time_t(TP tp)
 
 std::string CompileHandler::get_stdout_cmd(std::string cmd)
 {
-  std::string d;
+  std::string data;
   FILE *stream;
 
   const int max_buffer = 256;
   char buffer[max_buffer];
-
-  cmd.append(" 2>&1");
 
   stream = popen(cmd.c_str(), "r");
 
   if (stream)
   {
     while (!feof(stream))
-      if (fgets(buffer, max_buffer, stream) != NULL) d.append(buffer);
-
-    pclose(stream);
+      if (fgets(buffer, max_buffer, stream) != NULL) data.append(buffer);
   }
 
-  return d;
+  int return_status = pclose(stream);
+
+  return data;
 }
 
 std::string CompileHandler::get_time_metadata_file(std::string file)
@@ -130,8 +128,9 @@ int CompileHandler::write_files_recompile_needed(std::vector<std::string> names)
   for (const std::string& s : names)
     files_recompile_needed.push_back(s);
 
-  for (const std::string& s : files_recompile_needed)
-    std::cout << s << "\n";
+  // Debug
+  /*for (const std::string& s : files_recompile_needed)
+    std::cout << s << "\n";*/
 
   return 0;
 }
@@ -152,6 +151,7 @@ int CompileHandler::compile(ConfigHandler& h)
   for (const std::string& s : h.get_files())
   {
     std::string file = s;
+
     if (file.back() == 'c')
     {
       file[file.length() - 1] = 'o';
@@ -162,19 +162,36 @@ int CompileHandler::compile(ConfigHandler& h)
       file[file.length() - 1] = 'o';
     }
 
-    if (file[file.length() - 1] != 'p' && file[file.length() - 2] != 'p' && file[file.length() - 3] != 'h')
+    // TODO: clean up compile checking to be more changeable
+    if
+    (
+      file[file.length() - 1] != 'p' && 
+      file[file.length() - 2] != 'p' && 
+      file[file.length() - 3] != 'h' &&
+      file[file.length() - 1] != 'h'
+    )
     {
       cmd_two += file + " ";
     }
   }
 
   // Debug
-  std::cout << cmd << "\n";
-  std::cout << cmd_two << "\n";
+  /*std::cout << cmd << "\n";
+  std::cout << cmd_two << "\n";*/
+
+  // init compile var so no errors
+  std::string compile = "";
 
   if (!files_recompile_needed.empty())
-    std::string compile = get_stdout_cmd(cmd);
+    compile = get_stdout_cmd(cmd);
 
   std::string link = get_stdout_cmd(cmd_two);
+
+  if (!compile.empty())
+    std::cout << compile;
+
+  if (!link.empty())
+    std::cout << link;
+
   return 0;
 }
