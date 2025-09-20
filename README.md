@@ -34,11 +34,20 @@ Downsides:
 > [!Warning]
 > Use at your own risk. This project is far from complete and may change drastically.
 
-Assuming you have both `gcc` and `g++` installed on your system correctly, you can just run:
+Assuming you have both `gcc` and `g++` installed on your system correctly, run:
 ```bash
 chmod +x ./compile.sh
 ./compile.sh
 ```
+
+or
+
+```bash
+chmod +x ./compile.sh
+./compile.sh install
+```
+
+To install it (to `/usr/bin`) as well.
 
 
 ## Roadmap
