@@ -143,6 +143,7 @@ int CompileHandler::compile(ConfigHandler& h)
   for (const std::string& s : files_recompile_needed)
     cmd += s + " ";
 
+  std::cout << h.get_compiler_options();
   cmd += h.get_compiler_options();
   
   std::string cmd_two = h.get_compiler();
