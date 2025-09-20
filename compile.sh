@@ -14,7 +14,7 @@ if [[ "$compiled" != "true" ]]; then
     exit 1
 fi
 
-echo "[*] Compilation successful! You can find the newly compiled program at `${COMPILE_LOC}`."
+echo "[*] Compilation successful! You can find the newly compiled program at ${COMPILE_LOC}."
 
 if [[ "$1" != "install" ]]; then
     exit 0
