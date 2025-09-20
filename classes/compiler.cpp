@@ -143,7 +143,6 @@ int CompileHandler::compile(ConfigHandler& h)
   for (const std::string& s : files_recompile_needed)
     cmd += s + " ";
 
-  std::cout << h.get_compiler_options();
   cmd += h.get_compiler_options();
   
   std::string cmd_two = h.get_compiler();
@@ -189,10 +188,10 @@ int CompileHandler::compile(ConfigHandler& h)
 
   std::string link = get_stdout_cmd(cmd_two);
 
-  //if (!compile.empty())
+  if (!compile.empty())
     std::cout << compile;
 
-  //if (!link.empty())
+  if (!link.empty())
     std::cout << link;
 
   return 0;
