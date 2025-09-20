@@ -7,14 +7,14 @@ INSTALL_LOC="/usr/bin/scr"
 [ ! -d "$(dirname $COMPILE_LOC)" ] && mkdir "$(dirname $COMPILE_LOC)"
 
 echo "[i] Compiling lastest version ..."
-g++ -o $COMPILE_LOC ./main.cpp ./classes/config.cpp ./classes/config.hpp ./classes/parser.hpp ./classes/parser.cpp ./classes/compiler.hpp ./classes/compiler.cpp && compiled=true
+g++ -o "$COMPILE_LOC" ./main.cpp ./classes/config.cpp ./classes/config.hpp ./classes/parser.hpp ./classes/parser.cpp ./classes/compiler.hpp ./classes/compiler.cpp && compiled="true"
 
 if [[ "$compiled" != "true" ]]; then
     echo "[!] Compilation failed. Errors are above."
     exit 1
 fi
 
-echo "[*] Compilation successful! You can find the newly compiled program at `$COMPILE_LOC`."
+echo "[*] Compilation successful! You can find the newly compiled program at `${COMPILE_LOC}`."
 
 if [[ "$1" != "install" ]]; then
     exit 0
