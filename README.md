@@ -1,6 +1,6 @@
-# SCreate - A simpler alternative to make
+# SCReate - A simpler alternative to make
 
-SCreate is a simple alternative to `make` with intensionally less features.
+SCReate is a simple alternative to `make` with intensionally less features.
 
 It is designed to purely compile C and C++ code with gcc and g++ (however I am open to adding support for more languages in the future).
 
@@ -23,8 +23,8 @@ Upsides:
 Downsides:
 - It is written in C++.
 - Not as powerful as make.
-- Doesn't currently support dynamic content in the `scfile`.
-- All strings in the `scfile` can NOT contain double quotes (`"`).
+- Doesn't currently support dynamic content in the `scrfile`.
+- All strings in the `scrfile` can NOT contain double quotes (`"`).
 - Is very much is beta, and therefore is pretty unusable.
 
 
