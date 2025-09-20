@@ -1,3 +1,4 @@
 compiler = "g++"
 compiler_options = "-Loptions -lin -lthe -lnoise"
 files = "main.cpp" "test.hpp" "test.cpp"
+output_file = "monke.run"

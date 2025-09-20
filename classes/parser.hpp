@@ -7,7 +7,7 @@
 class ParsingHandler
 {
   private:
-    std::string scfile_loc = "./scfile";
+    std::string scfile_loc = "./scrfile";
     std::fstream open_scfile_loc();
 
   public:

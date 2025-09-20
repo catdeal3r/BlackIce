@@ -147,6 +147,7 @@ int CompileHandler::compile(ConfigHandler& h)
   std::string cmd_two = h.get_compiler();
   cmd_two += " -o ";
   cmd_two += h.get_output_file();
+  cmd_two += " ";
 
   for (const std::string& s : h.get_files())
   {
