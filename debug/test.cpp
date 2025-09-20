@@ -3,6 +3,6 @@
 
 int Test::print()
 {
-  std::cout << "Hello Test!\n";
+  std::cout << "Hello World!\n";
   return 0;
 }

@@ -1,4 +1,3 @@
 compiler = "g++"
-compiler_options = "NOOOBBBB"
 files = "main.cpp" "test.hpp" "test.cpp"
 output_file = "run.out"
