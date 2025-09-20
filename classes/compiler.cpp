@@ -39,6 +39,20 @@ std::string CompileHandler::get_stdout_cmd(std::string cmd)
   return data;
 }
 
+int CompileHandler::create_mapped_time_file()
+{
+  std::ifstream file(".scrcache");
+
+  if (file.good())
+    return 0;
+
+  file.close();
+  std::ofstream file_touch(".scrcache");
+  file_touch.close();
+
+  return 0;
+}
+
 std::string CompileHandler::get_time_metadata_file(std::string file)
 {
   std::filesystem::file_time_type ftime = std::filesystem::last_write_time(file);
@@ -61,7 +75,7 @@ std::unordered_map<std::string, std::string> CompileHandler::load_mapped_time_fi
   if (file.fail() || !file.is_open())
   {
     file.close();
-    throw std::invalid_argument("CompileHandler: 'write_mapped_time_file()' failed because .sccache file is unreadable");
+    throw std::invalid_argument("CompileHandler: 'load_mapped_time_file()' failed because .scrcache file is unreadable");
     exit(1);
   }
 
@@ -97,7 +111,7 @@ int CompileHandler::update_mapped_time_file(ConfigHandler& h)
   if (file.fail() || !file.is_open())
   {
     file.close();
-    throw std::invalid_argument("CompileHandler: 'write_mapped_time_file()' failed because .sccache file is unwrittable");
+    throw std::invalid_argument("CompileHandler: 'update_mapped_time_file()' failed because .scrcache file is unwrittable");
     exit(1);
   }
 

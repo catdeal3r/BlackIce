@@ -16,6 +16,7 @@ class CompileHandler
     std::string get_stdout_cmd(std::string);
 
   public:
+    int create_mapped_time_file();
     std::unordered_map<std::string, std::string> load_mapped_time_file();
     int update_mapped_time_file(ConfigHandler&);
 

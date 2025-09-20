@@ -39,6 +39,9 @@ int main(int argc, char* argv[])
 
   ph.parse_scrfile(h);
   std::vector<std::string> files = h.get_files();
+
+  // create file if not already existing
+  ch.create_mapped_time_file();
   std::unordered_map<std::string, std::string> times_and_files = ch.load_mapped_time_file();
 
   bool is_new_files;
