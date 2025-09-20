@@ -5,40 +5,40 @@
 #include <sstream>
 #include <vector>
 
-std::fstream ParsingHandler::open_scfile_loc()
+std::fstream ParsingHandler::open_scrfile_loc()
 {
-  std::fstream file(scfile_loc, std::ios::in);
+  std::fstream file(scrfile_loc, std::ios::in);
   
   if (file.fail())
   {
     file.close();
-    throw std::invalid_argument("ParsingHandler: 'open_scfile_loc()' failed as scfile is unreadable.");
+    throw std::invalid_argument("ParsingHandler: 'open_scrfile_loc()' failed as scrfile is unreadable.");
     exit(1);
   }
   
   return file;
 }
 
-int ParsingHandler::write_scfile_loc(std::string loc)
+int ParsingHandler::write_scrfile_loc(std::string loc)
 {
-  scfile_loc = loc;
+  scrfile_loc = loc;
   return 0;
 }
 
-int ParsingHandler::clear_scfile_loc()
+int ParsingHandler::clear_scrfile_loc()
 {
-  scfile_loc = "";
+  scrfile_loc = "";
   return 0;
 }
 
-int ParsingHandler::parse_scfile(ConfigHandler& h)
+int ParsingHandler::parse_scrfile(ConfigHandler& h)
 {
-  std::fstream file = open_scfile_loc();
+  std::fstream file = open_scrfile_loc();
 
   if (!file.is_open())
   {
     (void)file.close();
-    throw std::invalid_argument("ParsingHandler: 'parse_scfile()' failed as scfile is unreadable.");
+    throw std::invalid_argument("ParsingHandler: 'parse_scrfile()' failed as scrfile is unreadable.");
     exit(1);
   }
 
@@ -119,14 +119,14 @@ std::vector<std::string> ParsingHandler::parse_array(std::string s)
 }
 
 
-int ParsingHandler::_test_parse_scfile()
+int ParsingHandler::_test_parse_scrfile()
 {
-  std::fstream file = open_scfile_loc();
+  std::fstream file = open_scrfile_loc();
 
   if (!file.is_open())
   {
     (void)file.close();
-    throw std::invalid_argument("ParsingHandler: 'parse_scfile()' failed as scfile is unreadable.");
+    throw std::invalid_argument("ParsingHandler: 'parse_scrfile()' failed as scrfile is unreadable.");
     exit(1);
   }
 

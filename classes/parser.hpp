@@ -7,16 +7,16 @@
 class ParsingHandler
 {
   private:
-    std::string scfile_loc = "./scrfile";
-    std::fstream open_scfile_loc();
+    std::string scrfile_loc = "./scrfile";
+    std::fstream open_scrfile_loc();
 
   public:
-    int write_scfile_loc(std::string);
-    int clear_scfile_loc();
+    int write_scrfile_loc(std::string);
+    int clear_scrfile_loc();
 
-    int parse_scfile(ConfigHandler&);
+    int parse_scrfile(ConfigHandler&);
     
-    int _test_parse_scfile();
+    int _test_parse_scrfile();
     int _test_parse_option(std::string, std::string);
 
     static std::string parse_str(std::string);

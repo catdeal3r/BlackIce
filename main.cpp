@@ -21,7 +21,7 @@ int main(int argc, char* argv[])
     if (command_input[1] == "--test-parse")
     {
       std::cout << "Testing parser .....\n";
-      ph._test_parse_scfile();
+      ph._test_parse_scrfile();
       return 0;  
     }
 
@@ -37,7 +37,7 @@ int main(int argc, char* argv[])
     }
   }
 
-  ph.parse_scfile(h);
+  ph.parse_scrfile(h);
   std::vector<std::string> files = h.get_files();
   std::unordered_map<std::string, std::string> times_and_files = ch.load_mapped_time_file();
 
