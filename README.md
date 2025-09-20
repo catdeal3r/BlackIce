@@ -41,3 +41,4 @@ Wait until I'm finished.
 - [ ] Multiple targets for different compiles.
 - [ ] Run commands after completion.
 - [ ] `git push` after successful compile.
+- [ ] Debug option.
