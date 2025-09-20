@@ -2,7 +2,7 @@
 
 SCreate is a simple alternative to `make` with intensionally less features.
 
-It is designed to purely compile c and c++ code with gcc and g++ (however I am open to adding support for more languages in the future).
+It is designed to purely compile C and C++ code with gcc and g++ (however I am open to adding support for more languages in the future).
 
 ## Why?
 
@@ -30,3 +30,14 @@ Downsides:
 
 ## Installation and Usage
 Wait until I'm finished.
+
+## Roadmap
+
+- [x] Implement parsing system.
+- [x] Setup support for multiple files, custom compiler, and compiler flags.
+- [x] Detect whether a file has been added or been modified.
+- [x] Implement basic compiling support for C++.
+- [ ] Fully support C.
+- [ ] Multiple targets for different compiles.
+- [ ] Run commands after completion.
+- [ ] `git push` after successful compile.
