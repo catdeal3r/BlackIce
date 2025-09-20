@@ -1,4 +1,4 @@
 compiler = "g++"
-compiler_options = "sdfhsd&UJHYTGHN"
+compiler_options = "NOOOBBBB"
 files = "main.cpp" "test.hpp" "test.cpp"
-output_file = "banger.hello"
+output_file = "run.out"

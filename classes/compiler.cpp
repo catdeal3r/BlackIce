@@ -56,7 +56,7 @@ std::unordered_map<std::string, std::string> CompileHandler::load_mapped_time_fi
 {
   std::unordered_map<std::string, std::string> mapped_times = {};
 
-  std::fstream file(".sccache", std::ios::in);
+  std::fstream file(".scrcache", std::ios::in);
   
   if (file.fail() || !file.is_open())
   {
@@ -92,7 +92,7 @@ std::unordered_map<std::string, std::string> CompileHandler::load_mapped_time_fi
 
 int CompileHandler::update_mapped_time_file(ConfigHandler& h)
 {
-  std::fstream file(".sccache", std::ios::out);
+  std::fstream file(".scrcache", std::ios::out);
 
   if (file.fail() || !file.is_open())
   {
