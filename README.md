@@ -14,14 +14,19 @@ I created this project because:
 ## Pros and Cons
 
 Upsides:
-- It is written in c++.
+- It is written in C++.
 - Relatively fast.
 - Simple to configure (configuration file uses a toml-like syntax).
 - No extra libraries are needed; everything uses the c++ standard library.
 - Pretty robust parsing system.
 
 Downsides:
-- It is written in c++.
+- It is written in C++.
 - Not as powerful as make.
 - Doesn't currently support dynamic content in the `scfile`.
 - All strings in the `scfile` can NOT contain double quotes (`"`).
+- Is very much is beta, and therefore is pretty unusable.
+
+
+## Installation and Usage
+Wait until I'm finished.
