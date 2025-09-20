@@ -28,8 +28,18 @@ Downsides:
 - Is very much is beta, and therefore is pretty unusable.
 
 
-## Installation and Usage
-Wait until I'm finished.
+## Installation
+~~Wait until I'm finished.~~ 
+
+> [!Warning]
+> Use at your own risk. This project is far from complete and may change drastically.
+
+Assuming you have both `gcc` and `g++` installed on your system correctly, you can just run:
+```sh
+chmod +x ./compile.sh
+./compile.sh
+```
+
 
 ## Roadmap
 
