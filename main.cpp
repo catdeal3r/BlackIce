@@ -17,7 +17,6 @@ int main(int argc, char* argv[])
   {
     for (int i = 0; i < argc; i++)
       command_input.push_back(argv[i]);
-  
 
     if (command_input[1] == "--test-parse")
     {
@@ -53,9 +52,7 @@ int main(int argc, char* argv[])
     }
 
     if (is_new == true)
-    {
       is_new_files = true;
-    }
   }
 
 

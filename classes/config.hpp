@@ -8,6 +8,7 @@ class ConfigHandler
     std::vector<std::string> files;
     std::string compiler;
     std::string compiler_options;
+    std::string output_file;
 
   public:
     int write_file(std::string);
@@ -20,8 +21,10 @@ class ConfigHandler
     std::string get_compiler();
 
     int write_compiler_options(std::string);
-    int clear_compiler_options();
     std::string get_compiler_options();
+
+    int write_output_file(std::string);
+    std::string get_output_file();
 
     int write_generic_option(std::string, std::string);
 };

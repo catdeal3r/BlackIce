@@ -103,12 +103,6 @@ int ConfigHandler::write_compiler_options(std::string options)
   return 0;
 }
 
-int ConfigHandler::clear_compiler_options()
-{
-  compiler_options = "";
-  return 0;
-}
-
 std::string ConfigHandler::get_compiler_options()
 {
   if (compiler_options.length() == 0)
@@ -118,6 +112,29 @@ std::string ConfigHandler::get_compiler_options()
   }
 
   return compiler_options;
+}
+
+int ConfigHandler::write_output_file(std::string name)
+{
+  if (name == "")
+  {
+    throw std::invalid_argument("ConfigHandler: 'write_output_file()' requires a valid string.");
+    exit(1);
+  }
+
+  output_file = name;
+  return 0;
+}
+
+std::string ConfigHandler::get_output_file()
+{
+  if (output_file.length() == 0)
+  {
+    throw std::invalid_argument("ConfigHandler: output_file is not set.");
+    exit(1);
+  }
+
+  return output_file;
 }
 
 int ConfigHandler::write_generic_option(std::string key, std::string value)
@@ -136,6 +153,11 @@ int ConfigHandler::write_generic_option(std::string key, std::string value)
   {
     std::vector<std::string> files = ParsingHandler::parse_array(value);
     write_files(files);
+  }
+  else if (key == "output_file")
+  {
+    value = ParsingHandler::parse_str(value);
+    write_output_file(value);
   }
   else
   {

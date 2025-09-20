@@ -145,7 +145,8 @@ int CompileHandler::compile(ConfigHandler& h)
     cmd += s + " ";
   
   std::string cmd_two = h.get_compiler();
-  cmd_two += " -o a.out ";
+  cmd_two += " -o ";
+  cmd_two += h.get_output_file();
 
   for (const std::string& s : h.get_files())
   {
@@ -166,9 +167,9 @@ int CompileHandler::compile(ConfigHandler& h)
     }
   }
 
+  // Debug
   std::cout << cmd << "\n";
   std::cout << cmd_two << "\n";
-
 
   if (!files_recompile_needed.empty())
     std::string compile = get_stdout_cmd(cmd);
