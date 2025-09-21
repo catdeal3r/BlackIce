@@ -59,13 +59,13 @@ std::vector<std::string> CompileHandler::split_str(std::string str, std::string 
 
 int CompileHandler::create_mapped_time_file()
 {
-  std::ifstream file(".scrcache");
+  std::ifstream file(".bicache");
 
   if (file.good())
     return 0;
 
   file.close();
-  std::ofstream file_touch(".scrcache");
+  std::ofstream file_touch(".bicache");
   file_touch.close();
 
   return 0;
@@ -88,12 +88,12 @@ std::unordered_map<std::string, std::string> CompileHandler::load_mapped_time_fi
 {
   std::unordered_map<std::string, std::string> mapped_times = {};
 
-  std::fstream file(".scrcache", std::ios::in);
+  std::fstream file(".bicache", std::ios::in);
   
   if (file.fail() || !file.is_open())
   {
     file.close();
-    throw std::invalid_argument("CompileHandler: 'load_mapped_time_file()' failed because .scrcache file is unreadable");
+    throw std::invalid_argument("CompileHandler: 'load_mapped_time_file()' failed because .bicache file is unreadable");
     exit(1);
   }
 
@@ -124,12 +124,12 @@ std::unordered_map<std::string, std::string> CompileHandler::load_mapped_time_fi
 
 int CompileHandler::update_mapped_time_file(ConfigHandler& h)
 {
-  std::fstream file(".scrcache", std::ios::out);
+  std::fstream file(".bicache", std::ios::out);
 
   if (file.fail() || !file.is_open())
   {
     file.close();
-    throw std::invalid_argument("CompileHandler: 'update_mapped_time_file()' failed because .scrcache file is unwrittable");
+    throw std::invalid_argument("CompileHandler: 'update_mapped_time_file()' failed because .bicache file is unwrittable");
     exit(1);
   }
 
