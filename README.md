@@ -34,7 +34,7 @@ Downsides:
 > [!Warning]
 > Use at your own risk. This project is far from complete and may change drastically.
 
-Assuming you have both `gcc` and `g++` installed on your system correctly, run:
+Assuming you have either `g++` or `clang++` installed on your system correctly, run:
 ```bash
 chmod +x ./compile.sh
 ./compile.sh

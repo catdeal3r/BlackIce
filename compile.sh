@@ -3,11 +3,21 @@
 # edit these to change where the program is installed to
 COMPILE_LOC="./compile/scr"
 INSTALL_LOC="/usr/bin/scr"
+COMPILER="g++"
+
+if [[ $(which clang++) ]]; then
+    COMPILER="c++"
+fi
+
+if [[ ! $(which clang++) ]] && [[ ! $(which g++) ]]; then
+    echo "[!] Required compiler g++ or clang++ is not installed!"
+    exit 1
+fi
 
 [ ! -d "$(dirname $COMPILE_LOC)" ] && mkdir "$(dirname $COMPILE_LOC)"
 
 echo "[i] Compiling lastest version ..."
-g++ -o "$COMPILE_LOC" ./main.cpp ./classes/config.cpp ./classes/config.hpp ./classes/parser.hpp ./classes/parser.cpp ./classes/compiler.hpp ./classes/compiler.cpp && compiled="true"
+$COMPILER -o "$COMPILE_LOC" ./main.cpp ./classes/config.cpp ./classes/config.hpp ./classes/parser.hpp ./classes/parser.cpp ./classes/compiler.hpp ./classes/compiler.cpp && compiled="true"
 
 if [[ "$compiled" != "true" ]]; then
     echo "[!] Compilation failed. Errors are above."
