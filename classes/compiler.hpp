@@ -14,6 +14,7 @@ class CompileHandler
     std::time_t to_time_t(TP);
     std::vector<std::string> files_recompile_needed;
     std::string get_stdout_cmd(std::string);
+    std::vector<std::string> split_str(std::string, std::string);
 
   public:
     int create_mapped_time_file();

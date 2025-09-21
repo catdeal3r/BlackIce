@@ -49,6 +49,8 @@ chmod +x ./compile.sh
 
 To install it to `/usr/bin` as well.
 
+## Usage
+Check USAGE.md.
 
 ## Roadmap
 
@@ -59,6 +61,8 @@ To install it to `/usr/bin` as well.
 - [x] Custom output file name.
 - [x] Use compiler flags properly and error check.
 - [x] Create cache file if not already created.
+- [ ] Better error messages for user-based errors.
+- [ ] Help message.
 - [ ] Fully support C.
 - [ ] Multiple targets for different compiles.
 - [ ] Run commands after completion.

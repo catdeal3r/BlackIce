@@ -39,6 +39,24 @@ std::string CompileHandler::get_stdout_cmd(std::string cmd)
   return data;
 }
 
+std::vector<std::string> CompileHandler::split_str(std::string str, std::string spliter)
+{
+		std::vector<std::string> parts;
+		size_t pos = 0;
+		std::string part;
+		
+		while ((pos = str.find(spliter)) != std::string::npos)
+		{
+			part = str.substr(0, pos);
+			parts.push_back(part);
+			str.erase(0, pos + spliter.length());
+		}
+
+		parts.push_back(str);
+	
+		return parts;
+}
+
 int CompileHandler::create_mapped_time_file()
 {
   std::ifstream file(".scrcache");
@@ -167,6 +185,10 @@ int CompileHandler::compile(ConfigHandler& h)
   for (const std::string& s : h.get_files())
   {
     std::string file = s;
+
+    // Cause g++ puts object files in the current directory
+    std::vector<std::string> parts = split_str(file, "/");
+    file = parts.back();
 
     if (file.back() == 'c')
     {
