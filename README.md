@@ -61,9 +61,11 @@ Check USAGE.md.
 - [x] Custom output file name.
 - [x] Use compiler flags properly and error check.
 - [x] Create cache file if not already created.
+- [x] Fix bug where object files are misplaced by gcc.
 - [ ] Better error messages for user-based errors.
-- [ ] Help message.
-- [ ] Fully support C.
+- [x] Usage markdown document.
+- [ ] `--help` option.
+- [ ] Test support for C.
 - [ ] Multiple targets for different compiles.
 - [ ] Run commands after completion.
 - [ ] `git push` after successful compile.
