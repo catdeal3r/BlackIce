@@ -50,7 +50,7 @@ chmod +x ./compile.sh
 To install it to `/usr/bin` as well.
 
 ## Usage
-Check USAGE.md.
+Check [USAGE.md](https://github.com/catdeal3r/SCreate/blob/main/USAGE.md).
 
 ## Roadmap
 
