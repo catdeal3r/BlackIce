@@ -66,6 +66,7 @@ Check [USAGE.md](https://github.com/catdeal3r/SCreate/blob/main/USAGE.md).
 - [x] Usage markdown document.
 - [ ] `--help` option.
 - [ ] Test support for C.
+- [x] Dynamic content in the options.
 - [ ] Multiple targets for different compiles.
 - [ ] Run commands after completion.
 - [ ] `git push` after successful compile.

@@ -216,8 +216,8 @@ int CompileHandler::compile(ConfigHandler& h)
   }
 
   // Debug
-  std::cout << cmd << "\n";
-  std::cout << cmd_two << "\n";
+  /*std::cout << cmd << "\n";
+  std::cout << cmd_two << "\n";*/
 
   std::string compile = "";
 
