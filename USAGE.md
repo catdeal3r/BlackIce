@@ -1,6 +1,6 @@
 # Usage
 
-This markdown file details how to use `scr` (the command provided by SCReate).
+This markdown file details how to use `bi` (the command provided by BlackIce).
 
 ## Commandline Options:
 - `--test-parse`:<br>
@@ -12,7 +12,7 @@ Test checking of time metadata for passed `[FILE]`.<br><br>
 - `--reset-cache`:<br>
 Clear `.scrcache` file before recompiling (useful for fixing linking errors after switching compilers).<br>
 
-## `scrfile` Options:
+## `bifile` Options:
 - `compiler`:<br>
 **Type**: String<br>
 **Optional**: False<br>

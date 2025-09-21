@@ -1,8 +1,8 @@
-# SCReate - A simpler alternative to make
+# BlackIce - A simpler alternative to make
 
-SCReate is a simple alternative to `make` with intensionally less features.
+BlackIce is a simple alternative to `make` with intensionally less features.
 
-It is designed to purely compile C and C++ code with gcc and g++ (however I am open to adding support for more languages in the future).
+It is designed to compile C and C++ code with gcc and g++ like compilers.
 
 ## Why?
 
@@ -23,8 +23,8 @@ Upsides:
 Downsides:
 - It is written in C++.
 - Not as powerful as make.
-- Doesn't currently support dynamic content in the `scrfile`.
-- All strings in the `scrfile` can NOT contain double quotes (`"`).
+- Doesn't currently support dynamic content in the `bifile`.
+- All strings in the `bifile` can NOT contain double quotes (`"`).
 - Is very much is beta, and therefore is pretty unusable.
 
 
@@ -34,7 +34,7 @@ Downsides:
 > [!Warning]
 > Use at your own risk. This project is far from complete and may change drastically.
 
-Assuming you have either `g++` or `clang++` installed on your system correctly, run:
+Assuming you have either `g++` installed on your system correctly, run:
 ```bash
 chmod +x ./compile.sh
 ./compile.sh

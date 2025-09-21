@@ -22,7 +22,7 @@ int main(int argc, char* argv[])
     if (command_input[1] == "--test-parse")
     {
       std::cout << "Testing parser .....\n";
-      ph._test_parse_scrfile();
+      ph._test_parse_bifile();
       return 0;  
     }
 
@@ -44,7 +44,7 @@ int main(int argc, char* argv[])
     }
   }
 
-  ph.parse_scrfile(h);
+  ph.parse_bifile(h);
   std::vector<std::string> files = h.get_files();
 
   // create file if not already existing

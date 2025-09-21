@@ -1,8 +1,8 @@
 #!/bin/sh
 
 # edit these to change where the program is installed to
-COMPILE_LOC="./compile/scr"
-INSTALL_LOC="/usr/bin/scr"
+COMPILE_LOC="./compile/bi"
+INSTALL_LOC="/usr/bin/bi"
 
 if [[ ! $(which g++) ]]; then
     echo "[!] Required compiler g++ is not installed!"
