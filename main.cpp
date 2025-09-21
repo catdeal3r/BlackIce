@@ -4,6 +4,7 @@
 #include "classes/compiler.hpp"
 #include <vector>
 #include <unordered_map>
+#include <filesystem>
 
 int main(int argc, char* argv[])
 {
@@ -34,6 +35,12 @@ int main(int argc, char* argv[])
       std::cout << "File write time is " << time << "\n";    
 
       return 0;
+    }
+
+    if (command_input[1] == "--reset-cache")
+    {
+      if (std::filesystem::remove(".scrcache"))
+        std::cout << "CompileHandler: cache file reset.";
     }
   }
 
