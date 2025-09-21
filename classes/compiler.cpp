@@ -178,6 +178,8 @@ int CompileHandler::compile(ConfigHandler& h)
   cmd += h.get_compiler_options();
   
   std::string cmd_two = h.get_compiler();
+  cmd_two += " ";
+  cmd_two += h.get_compiler_options();
   cmd_two += " -o ";
   cmd_two += h.get_output_file();
   cmd_two += " ";
@@ -214,8 +216,8 @@ int CompileHandler::compile(ConfigHandler& h)
   }
 
   // Debug
-  /*std::cout << cmd << "\n";
-  std::cout << cmd_two << "\n";*/
+  std::cout << cmd << "\n";
+  std::cout << cmd_two << "\n";
 
   std::string compile = "";
 
