@@ -10,28 +10,44 @@ Test parsing of the `scrfile` file.<br><br>
 Test checking of time metadata for passed `[FILE]`.<br><br>
 
 - `--reset-cache`:<br>
-Clear `.scrcache` file before recompiling (useful for linking errors between switching compilers).<br>
+Clear `.scrcache` file before recompiling (useful for fixing linking errors after switching compilers).<br>
 
 ## `scrfile` Options:
 - `compiler`:<br>
 **Type**: String<br>
 **Optional**: False<br>
-**Description**: The compiler to use. Currently only supports `g++` and `gcc`.<br><br>
+**Description**: The compiler to use. Currently only supports `g++`, `gcc`, and `c++`.<br>
+**Example**:
+```
+compile = "g++"
+```
 
 - `files`:<br>
 **Type**: Array<br>
 **Optional**: False<br>
-**Description**: An array of paths pointing to files to be compiled.<br><br>
+**Description**: An array of paths pointing to files to be compiled.<br>
+**Example**:
+```
+files = "main.cpp" "class.hpp" "class.cpp"
+```
 
-- `compiler_options`:
+- `compiler_options`:<br>
 **Type**: String<br>
 **Optional**: True<br>
-**Description**: A string that is passed to the compiler<br><br>
+**Description**: A string that is passed to the compiler<br>
+**Example**:
+```
+compiler_options = "-lcurl -lcurlpp -std=c++20"
+```
 
 - `output_file`:<br>
-**Type**" String<br>
+**Type**: String<br>
 **Optional**: False<br>
 **Description**: The path of the output file.<br>
+**Example**:
+```
+output_file = "cool_program.out"
+```
 
 ## Parsing Specifications:
 - String:<br>
