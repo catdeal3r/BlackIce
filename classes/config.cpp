@@ -70,7 +70,7 @@ int ConfigHandler::write_compiler(std::string c)
       exit(1);
   }
 
-  if (c != "g++" && c != "gcc")
+  if (c != "g++" && c != "gcc" && c != "c++")
     std::cout << "[!] Unsupported compiler: '" << c << "'. You may experience issues while using it.\n";
   
   compiler = c;
