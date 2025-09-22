@@ -39,7 +39,7 @@ int main(int argc, char* argv[])
 
     if (command_input[1] == "--reset-cache")
     {
-      if (std::filesystem::remove(".scrcache"))
+      if (std::filesystem::remove(".bicache"))
         std::cout << "CompileHandler: cache file reset.\n";
     }
   }
